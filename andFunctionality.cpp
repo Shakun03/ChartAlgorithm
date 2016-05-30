@@ -61,7 +61,7 @@ struct node*addNewNode(int dest,char type,char const*prefix,char const*text,char
 	 newNode->type=type;
 	 newNode->text = (char*)malloc(sizeof(char) * 1024);
 	 strncpy(newNode->text,text,strlen(text) + 1);
-     newNode->prefix = (char*)malloc(sizeof(char) * 1024);
+         newNode->prefix = (char*)malloc(sizeof(char) * 1024);
 	 strncpy(newNode->prefix,prefix,strlen(prefix) + 1);
 	 newNode->postfix = (char*)malloc(sizeof(char) * 1024);
 	 strncpy(newNode->postfix,postfix,strlen(postfix) + 1);
@@ -123,22 +123,22 @@ void printGraph(struct Graph*graph)
 void changeToText(struct Graph*graph)
 {
  	int v=0;
-    while(v!=graph->V)
-    {
-        struct node*crawl = graph->Array[v].head;
-        if(crawl->postfix=="end")
+        while(v!=graph->V)
         {
-        	outputArray[l++]="end";
-        }
-        else
-        {
-	        outputArray[l++]=crawl->prefix;
-	        outputArray[l++]=crawl->text;
-	        outputArray[l++]=crawl->postfix;
-	        outputArray[l++]="and";
-        }
-        v++;
-     }
+        	struct node*crawl = graph->Array[v].head;
+        	if(crawl->postfix=="end")
+         	{
+        		outputArray[l++]="end";
+        	}
+		 else
+        	{
+		 	outputArray[l++]=crawl->prefix;
+	        	outputArray[l++]=crawl->text;
+	        	outputArray[l++]=crawl->postfix;
+	        	outputArray[l++]="and";
+        	}
+        	v++;
+     	}
 }
 
 int main()
@@ -156,11 +156,11 @@ int main()
 	 cout<<endl<<"**************************";
 	 cout<<endl<<endl<<"The textual info:"<<endl;
 	 changeToText(graph);
-     for(int e=0;e<=l;e++)
-     {
-     	cout<<" "<< outputArray[e];
-     }
-	 return 0;
+     	for(int e=0;e<=l;e++)
+     	{
+     		cout<<" "<< outputArray[e];
+     	}
+	return 0;
 }
 
 
