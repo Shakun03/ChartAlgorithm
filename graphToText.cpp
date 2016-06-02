@@ -142,7 +142,7 @@ void changeToText(struct Graph*graph)
         struct node*crawl = graph->Array[v].head;
         if(crawl->postfix=="end")
         {
-            cout<<"end aa gya"<<endl;
+            
             outputArray[l++]="end";
             break;
         }
